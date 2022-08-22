@@ -2,6 +2,7 @@ package co.edu.cue.jugueteria.application;
 
 import co.edu.cue.jugueteria.controllers.FuncionJuguete;
 import co.edu.cue.jugueteria.controllers.FuncionUsuario;
+import co.edu.cue.jugueteria.controllers.FuncionVenta;
 import co.edu.cue.jugueteria.model.Cliente;
 import co.edu.cue.jugueteria.model.Empleado;
 import co.edu.cue.jugueteria.model.Juguete;
@@ -18,6 +19,7 @@ public class jugueteria {
         FuncionUsuario funcionUsuario=new FuncionUsuario();
         funcionUsuario.generarCliente(clientes);
         funcionUsuario.generarEmpleado(empleados);
+        FuncionVenta funcionVenta=new FuncionVenta();
         int option;
     do{
         option=JOptionPane.showOptionDialog(
@@ -83,6 +85,7 @@ public class jugueteria {
                     }
                     break;
                 case 2:
+                    funcionVenta.prepararVenta(juguetes,clientes,empleados);
                     break;
             }
         }while (option!=3);

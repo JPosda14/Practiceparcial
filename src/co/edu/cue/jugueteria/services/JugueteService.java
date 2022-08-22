@@ -24,7 +24,24 @@ public class JugueteService {
     }
 
     public void crearVenta(DetalleVenta detalleVenta[],Cliente cliente,Empleado empleado,Juguete juguetes[]){
-        VentaJuguete ventaJuguete=new VentaJuguete(JOptionPane.showInputDialog("Digite la fecha de venta"),cliente,empleado,((Math.random()*((80-0)+1))+0),detalleVenta);
-
+        VentaJuguete ventaJuguete=new VentaJuguete(JOptionPane.showInputDialog("Digite la fecha de venta"),cliente,empleado,((Math.random()*((80-0)+1))+0)/10,detalleVenta);
+        double valorTotal=0;
+        for(int x=0;x<detalleVenta.length;x++){
+            boolean confirm=false;
+            for (int y=0;y<100;y++){
+                if (detalleVenta[x].getJuguete().getNombre().equalsIgnoreCase(juguetes[y].getNombre())) {
+                    juguetes[y].setInventario(juguetes[y].getInventario()-detalleVenta[x].getCantidadJuguetes());
+                    break;
+                }
+            }
+            valorTotal+=(detalleVenta[x].getCantidadJuguetes()*detalleVenta[x].getJuguete().getPrecio())*ventaJuguete.getValorTotal();
+        }
+        ventaJuguete.setValorTotal(valorTotal);
+        String cadena="Venta exitosa\n";
+        cadena+="Fecha de venta:   "+ventaJuguete.getFechaVenta()+"\nEmpleado:   "+ventaJuguete.getEmpleado()+"\nCliente:   "+ventaJuguete.getCliente()+"\nProductos comprados\n";
+        for (int x=0;x<detalleVenta.length;x++){
+            cadena+=detalleVenta[x].getJuguete().getNombre()+"       precio"+(detalleVenta[x].getJuguete().getPrecio()*detalleVenta[x].getCantidadJuguetes())+"\n";
+        }
+        cadena+="Descuento:   "+(ventaJuguete.getDescuento()*10)+"%\nValor total:    "+ventaJuguete.getValorTotal();
     }
 }

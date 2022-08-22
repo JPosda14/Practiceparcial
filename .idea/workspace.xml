@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90aa68a7-fc34-4d0c-9c48-3f25c360d733" name="Changes" comment="Modelacion">
+    <list default="true" id="90aa68a7-fc34-4d0c-9c48-3f25c360d733" name="Changes" comment="Terminado seccion informe, agregar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/application/jugueteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/application/jugueteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionJuguete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionJuguete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionVenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/DetalleVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/DetalleVenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/Juguete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/Juguete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/VentaJuguete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/model/VentaJuguete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/ClienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/EmpleadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/EmpleadoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/JugueteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/JugueteService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660961931374</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Terminado seccion informe, agregar">
+      <created>1661133141025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661133141025</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,10 +97,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modelacion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modelacion" />
+    <MESSAGE value="Terminado seccion informe, agregar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminado seccion informe, agregar" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/javaPractica1_2$jugueteria.ic" NAME="jugueteria Coverage Results" MODIFIED="1661129470816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/javaPractica1_2$jugueteria.ic" NAME="jugueteria Coverage Results" MODIFIED="1661138106596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>co.edu.cue.jugueteria.application.*</FILTER>
     </SUITE>
   </component>
