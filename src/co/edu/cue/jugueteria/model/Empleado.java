@@ -19,4 +19,14 @@ public class Empleado extends Usuario {
     public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
+
+    public Empleado(String nombre,String cedula,String telefono, String direccion,double salario, String fechaIngreso){
+        setNombre(nombre);
+        setCedula(cedula);
+        setTelefono(telefono);
+        setDireccion(direccion);
+        this.salario=salario;
+        this.fechaIngreso=fechaIngreso;
+
+    }
 }

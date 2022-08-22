@@ -10,6 +10,14 @@ public class VentaJuguete {
     private DetalleVenta detalleVenta[];
     private double valorTotal;
 
+    public VentaJuguete(String fechaVenta,Cliente cliente,Empleado empleado,double descuento,DetalleVenta detalleVenta[]){
+        this.fechaVenta=fechaVenta;
+        this.cliente=cliente;
+        this.empleado=empleado;
+        this.descuento=descuento;
+        this.detalleVenta=detalleVenta;
+        this.valorTotal=0;
+    }
     public String getFechaVenta() {
         return fechaVenta;
     }
@@ -57,4 +65,6 @@ public class VentaJuguete {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+
 }

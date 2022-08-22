@@ -19,4 +19,8 @@ public class DetalleVenta {
     public void setCantidadJuguetes(int cantidadJuguetes) {
         this.cantidadJuguetes = cantidadJuguetes;
     }
+    public DetalleVenta(Juguete juguete,int cantidadJuguetes){
+        this.juguete=juguete;
+        this.cantidadJuguetes=cantidadJuguetes;
+    }
 }
