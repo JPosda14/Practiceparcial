@@ -24,8 +24,11 @@ public class FuncionVenta {
                         break;
                     } else if (juguetes[y].getNombre().equalsIgnoreCase(nameJuguete)) {
                         confirm = true;
-                        DetalleVenta detalleventa = new DetalleVenta(juguetes[x], Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de existencias a comprar de este juguete")));
+                        DetalleVenta detalleventa = new DetalleVenta(juguetes[y], Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de existencias a comprar de este juguete")));
                         detallesdeventa[x] = detalleventa;
+                        System.out.println(detalleventa.getJuguete().getNombre());
+                        System.out.println(detalleventa.getCantidadJuguetes());
+                        System.out.println(detalleventa.getJuguete().getPrecio());
                         break;
                     }
                 }
@@ -35,32 +38,39 @@ public class FuncionVenta {
             }while (confirm==false);
         }
         boolean confirmcliente=false;
-        for (int x=0;x<5;x++){
-            if(String.valueOf(clientes[x])=="null"){
-                break;
-            }else if (clientes[x].getNombre().equalsIgnoreCase(JOptionPane.showInputDialog("Digite el nombre del cliente"))){
-                confirmcliente=true;
-                prepacliente=clientes[x];
-                break;
+        do {
+            String clienteask = JOptionPane.showInputDialog("Digite el nombre del cliente");
+            for (int x = 0; x < 5; x++) {
+                if (String.valueOf(clientes[x]) == "null") {
+                    break;
+                } else if (clientes[x].getNombre().equalsIgnoreCase(clienteask)) {
+                    confirmcliente = true;
+                    prepacliente = clientes[x];
+                    break;
+                }
             }
-        }
-        if (!confirmcliente){
-            JOptionPane.showMessageDialog(null,"EL cliente no se a encontrado");
-        }
+            if (!confirmcliente) {
+                JOptionPane.showMessageDialog(null, "EL cliente no se a encontrado");
+            }
+        }while (!confirmcliente);
         //---------------------------------------------------------------------------------------------------------------------------EMpleados preparacion
-        boolean confirmEmpleado=false;
-        for (int x=0;x<5;x++){
-            if(String.valueOf(empleados[x])=="null"){
-                break;
-            }else if (empleados[x].getNombre().equalsIgnoreCase(JOptionPane.showInputDialog("Digite el nombre del empleado"))){
-                confirmEmpleado=true;
-                prepaEmpleado=empleados[x];
-                break;
+            boolean confirmEmpleado = false;
+        do {
+            String empleadoask = JOptionPane.showInputDialog("Digite el nombre del empleado");
+            for (int x = 0; x < 5; x++) {
+                if (String.valueOf(empleados[x]) == "null") {
+                    break;
+                } else if (empleados[x].getNombre().equalsIgnoreCase(empleadoask)) {
+                    confirmEmpleado = true;
+                    prepaEmpleado = empleados[x];
+                    break;
+                }
             }
-        }
-        if (!confirmEmpleado){
-            JOptionPane.showMessageDialog(null,"EL empleado no se a encontrado");
-        }
+            if (!confirmEmpleado) {
+                JOptionPane.showMessageDialog(null, "EL empleado no se a encontrado");
+            }
+        }while (!confirmEmpleado);
+        System.out.println("sds");
         JugueteService jugueteService=new JugueteService();
         jugueteService.crearVenta(detallesdeventa,prepacliente,prepaEmpleado,juguetes);
     }

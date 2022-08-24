@@ -34,14 +34,15 @@ public class JugueteService {
                     break;
                 }
             }
-            valorTotal+=(detalleVenta[x].getCantidadJuguetes()*detalleVenta[x].getJuguete().getPrecio())*ventaJuguete.getValorTotal();
+            valorTotal+=(detalleVenta[x].getCantidadJuguetes()*detalleVenta[x].getJuguete().getPrecio());
         }
         ventaJuguete.setValorTotal(valorTotal);
         String cadena="Venta exitosa\n";
-        cadena+="Fecha de venta:   "+ventaJuguete.getFechaVenta()+"\nEmpleado:   "+ventaJuguete.getEmpleado()+"\nCliente:   "+ventaJuguete.getCliente()+"\nProductos comprados\n";
+        cadena+="Fecha de venta:   "+ventaJuguete.getFechaVenta()+"\nEmpleado:   "+ventaJuguete.getEmpleado().getNombre()+"\nCliente:   "+ventaJuguete.getCliente().getNombre()+"\nProductos comprados\n\n";
         for (int x=0;x<detalleVenta.length;x++){
-            cadena+=detalleVenta[x].getJuguete().getNombre()+"       precio"+(detalleVenta[x].getJuguete().getPrecio()*detalleVenta[x].getCantidadJuguetes())+"\n";
+            cadena+=detalleVenta[x].getJuguete().getNombre()+"          precio:   "+(detalleVenta[x].getJuguete().getPrecio()*detalleVenta[x].getCantidadJuguetes())+"\n";
         }
-        cadena+="Descuento:   "+(ventaJuguete.getDescuento()*10)+"%\nValor total:    "+ventaJuguete.getValorTotal();
+        cadena+="Descuento:   "+(ventaJuguete.getDescuento()*10)+"%\nValor total:    "+ventaJuguete.getValorTotal()+"\nValor de total con descuento:     "+(ventaJuguete.getDescuento()*ventaJuguete.getValorTotal()+"\n");
+        JOptionPane.showMessageDialog(null,cadena);
     }
 }
