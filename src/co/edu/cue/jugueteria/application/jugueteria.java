@@ -11,14 +11,11 @@ import javax.swing.*;
 
 public class jugueteria {
     public static void main(String[] args) {
-        Cliente clientes[]=new Cliente[20];
-        Empleado empleados[]=new Empleado[5];
-        Juguete juguetes[]=new Juguete[100];
         FuncionJuguete funcionJuguete=new FuncionJuguete();
-        funcionJuguete.generarPrueba(juguetes);
+        funcionJuguete.generarPrueba();
         FuncionUsuario funcionUsuario=new FuncionUsuario();
-        funcionUsuario.generarCliente(clientes);
-        funcionUsuario.generarEmpleado(empleados);
+        funcionUsuario.generarCliente();
+        funcionUsuario.generarEmpleado();
         FuncionVenta funcionVenta=new FuncionVenta();
         int option;
     do{
@@ -33,19 +30,19 @@ public class jugueteria {
                             new Object[]{"Agregar Juguete","Aumentar exitencias de juguete","Disminuir existencias de juguete", "Agregar Cliente", "Agregar Empleado", "Salir"}, null);
                     switch (option0){
                         case 0:
-                            funcionJuguete.prepararJuguete(juguetes);
+                            funcionJuguete.prepararJuguete();
                             break;
                         case 1:
-                            funcionJuguete.aumentarExistencias(juguetes);
+                            funcionJuguete.prepararAumentoExistencias();
                             break;
                         case 2:
-                            funcionJuguete.disminuirExistencias(juguetes);
+                            funcionJuguete.prepararDisminuirExistencias();
                             break;
                         case 3:
-                            funcionUsuario.prepararCliente(clientes);
+                            funcionUsuario.prepararCliente();
                             break;
                         case 4:
-                            funcionUsuario.prepararEmpleado(empleados);
+                            funcionUsuario.prepararEmpleado();
                             break;
                     }
                     break;
@@ -59,35 +56,35 @@ public class jugueteria {
                                     new Object[]{"Plastico", "Tela", "Electrico"}, null);
                             switch (opmaterial) {
                                 case 0:
-                                    funcionJuguete.informarJuguetesPorTipo(juguetes, "Plastico");
+                                    funcionJuguete.prepararInformarJuguetesPorTipo("Plastico");
                                     break;
                                 case 1:
-                                    funcionJuguete.informarJuguetesPorTipo(juguetes, "Tela");
+                                    funcionJuguete.prepararInformarJuguetesPorTipo( "Tela");
                                     break;
                                 case 2:
-                                    funcionJuguete.informarJuguetesPorTipo(juguetes, "Electrico");
+                                    funcionJuguete.prepararInformarJuguetesPorTipo("Electrico");
                                     break;
                             }
                             break;
                         case 1:
-                            funcionJuguete.cantidadJuguetes(juguetes);
+                            funcionJuguete.prepararCantidadJuguetes();
                             break;
                         case 2:
-                            funcionJuguete.TotalValor(juguetes);
+                            funcionJuguete.prepararTotalValor();
                             break;
                         case 3:
-                            funcionJuguete.maxminTipo(juguetes);
+                            funcionJuguete.prepararMaxminTipo();
                             break;
                         case 4:
-                            funcionJuguete.mayorPrecio(juguetes);
+                            funcionJuguete.prepararMayorPrecio();
                             break;
                         case 5:
-                            funcionJuguete.cuidadoToy(juguetes);
+                            funcionJuguete.prepararCuidadoToy();
                             break;
                     }
                     break;
                 case 2:
-                    funcionVenta.prepararVenta(juguetes,clientes,empleados);
+                    funcionVenta.prepararVenta();
                     break;
             }
         }while (option!=3);
