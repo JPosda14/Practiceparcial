@@ -26,7 +26,6 @@ public class jugueteria {
                 null,"Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
                 new Object[] { "Editar", "Informe", "Vender","Salir" },null);
 
-
             switch (option) {
                 case 0:
                     int option0=JOptionPane.showOptionDialog(
@@ -53,7 +52,7 @@ public class jugueteria {
                 case 1:
                     int option1 = JOptionPane.showOptionDialog(
                             null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
-                            new Object[]{"Cantidad de juguetes por tipo", "Cantidad total de juguetes", "Valor total de juguetes", "Moda de tipo de juguetes", "Comparacion por precio", "Salir"}, null);
+                            new Object[]{"Cantidad de juguetes por tipo", "Cantidad total de juguetes", "Valor total de juguetes", "Moda de tipo de juguetes", "Comparacion por precio","Cuidados juguete", "Salir"}, null);
                     switch (option1) {
                         case 0:
                             int opmaterial = JOptionPane.showOptionDialog(null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
@@ -82,6 +81,9 @@ public class jugueteria {
                         case 4:
                             funcionJuguete.mayorPrecio(juguetes);
                             break;
+                        case 5:
+                            funcionJuguete.cuidadoToy(juguetes);
+                            break;
                     }
                     break;
                 case 2:
@@ -89,8 +91,6 @@ public class jugueteria {
                     break;
             }
         }while (option!=3);
-
-
     }
 
 }

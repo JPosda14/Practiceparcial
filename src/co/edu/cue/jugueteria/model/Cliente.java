@@ -23,6 +23,7 @@ public class Cliente extends Usuario{
         setDireccion(direccion);
         this.diaCumple=diaCumple;
         this.correo = correo;
+
     }
 
     public void setCorreo(String correo) {

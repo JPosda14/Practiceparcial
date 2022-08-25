@@ -144,7 +144,8 @@ public class FuncionJuguete {
         for (int x=0;x<100;x++){
             if (String.valueOf(juguetes[x])=="null"){
                 break;
-            } else if (juguetes[x].getNombre()==nameJuguete){
+            }
+            if (juguetes[x].getNombre().equalsIgnoreCase(nameJuguete)){
                 confirm=true;
                 int cantiaumento=Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad a aumentar: "));
                 juguetes[x].setInventario(juguetes[x].getInventario()+cantiaumento);
@@ -166,7 +167,8 @@ public class FuncionJuguete {
         for (int x=0;x<100;x++){
             if (String.valueOf(juguetes[x])=="null"){
                 break;
-            } else if (juguetes[x].getNombre()==nameJuguete){
+            }
+            if (juguetes[x].getNombre().equalsIgnoreCase(nameJuguete)){
                 confirm=true;
                 int cantiaumento=Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad a disminuir: "));
                 juguetes[x].setInventario(juguetes[x].getInventario()-cantiaumento);
@@ -179,5 +181,35 @@ public class FuncionJuguete {
         } else {
             JOptionPane.showMessageDialog(null,"El juguete no fue encontrado");
         }
+    }
+
+    public void cuidadoToy(Juguete juguetes[]){
+        boolean confirmToy=false;
+        String cadena="Informacion de cuidado del producto:\n";
+        do {
+            String nameJuguete = JOptionPane.showInputDialog("Digite el nombre del juguete que desea saber su cuidado");
+            System.out.println(nameJuguete);
+            for (int x = 0; x < 100; x++) {
+                if (String.valueOf(juguetes[x]) == "null") {
+                    break;
+                }
+                if (juguetes[x].getNombre().equalsIgnoreCase(nameJuguete)) {
+                    cadena += juguetes[x].getNombre() + "\n"+juguetes[x].getMaterial();
+                    confirmToy = true;
+                    switch (juguetes[x].getMaterial()) {
+                        case "Plastico":
+                            cadena += "El juguete no requiere cuidados especiales";
+                            break;
+                        case "Tela":
+                            cadena += "El juguete no debe ser mojado";
+                            break;
+                        case "Electronico":
+                            cadena += "El juguete no debe ser mojado y requiere baterías";
+                            break;
+                    }
+                }
+            }
+        }while (!confirmToy);
+        JOptionPane.showMessageDialog(null,cadena);
     }
 }

@@ -58,6 +58,7 @@ public class FuncionVenta {
         do {
             String empleadoask = JOptionPane.showInputDialog("Digite el nombre del empleado");
             for (int x = 0; x < 5; x++) {
+                System.out.println(empleados[x].getNombre().equalsIgnoreCase(empleadoask));
                 if (String.valueOf(empleados[x]) == "null") {
                     break;
                 } else if (empleados[x].getNombre().equalsIgnoreCase(empleadoask)) {
