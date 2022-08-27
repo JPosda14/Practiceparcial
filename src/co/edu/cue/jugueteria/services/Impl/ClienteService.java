@@ -53,4 +53,4 @@ public class ClienteService implements UsuarioService{
     public void crearUsuario() {
         Cliente cliente=new Cliente(JOptionPane.showInputDialog("Digite el nombre del cliente"),JOptionPane.showInputDialog("Digite el numero de cedula: "),JOptionPane.showInputDialog("Digite el numero de telefono: "),JOptionPane.showInputDialog("Digite la direccion del usuario: "),JOptionPane.showInputDialog("Digite el dia de cumpleaños del Cliente"),JOptionPane.showInputDialog("Digite el correo"));
     }
-}
+}//hecho informe

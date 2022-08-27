@@ -52,11 +52,11 @@ public class Proveedor {
     }
 
 
-    public Proveedor(String name,String codeProveedor,String Qos,String material,Juguete juguetes[]){
-        this.name=name;
-        this.codeProveedor=codeProveedor;
-        this.Qos=Qos;
-        this.material=material;
-        this.juguetes=juguetes;
-    }
+    public Proveedor(String name, String codeProveedor, String Qos, String material, Juguete juguetes[]) {
+        this.name = name;
+        this.codeProveedor = codeProveedor;
+        this.Qos = Qos;
+        this.material = material;
+        this.juguetes = juguetes;
+    }//finish proveedor
 }

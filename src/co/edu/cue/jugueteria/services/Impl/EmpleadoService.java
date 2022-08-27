@@ -53,5 +53,5 @@ public class EmpleadoService implements UsuarioService{
     public void crearUsuario(){
         Empleado empleado=new Empleado(JOptionPane.showInputDialog("Digite el nombre del cliente"),JOptionPane.showInputDialog("Digite el numero de cedula: "),JOptionPane.showInputDialog("Digite el numero de telefono: "),JOptionPane.showInputDialog("Digite la direccion del usuario: "),Double.parseDouble(JOptionPane.showInputDialog("Digite el salario del empleado: ")),JOptionPane.showInputDialog("Ingrese la fecha de ingreso del empleado: "));
 
-    }
+    }//Informe
 }

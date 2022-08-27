@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="90aa68a7-fc34-4d0c-9c48-3f25c360d733" name="Changes" comment="Terminado xd" />
+    <list default="true" id="90aa68a7-fc34-4d0c-9c48-3f25c360d733" name="Changes" comment="Finish" />
     <list id="6ec86523-103f-43e3-918c-6d636824cf10" name="Changes by Posada" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +130,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661697820795</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Terminado xd">
+      <created>1662123075490</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662123075490</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Finish">
+      <created>1662123161228</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662123161228</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,7 +162,8 @@
     <MESSAGE value="Modelacion" />
     <MESSAGE value="Terminado seccion informe, agregar" />
     <MESSAGE value="Terminado xd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminado xd" />
+    <MESSAGE value="Finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

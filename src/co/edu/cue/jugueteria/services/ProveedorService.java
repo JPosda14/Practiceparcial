@@ -58,7 +58,7 @@ public class ProveedorService {
         System.out.println(proveedores[0].getJuguetes()[0].getNombre());
         JOptionPane.showMessageDialog(null,cadenaProveedores);
         JOptionPane.showMessageDialog(null,proveedores[0].getJuguetes()[0].getNombre());
-    }//finish
+    }//finishsh
 
 
 }
