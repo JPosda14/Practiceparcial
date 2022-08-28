@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.lang.*;
 
 public class FuncionJuguete {
-    public ProveedorService proveedorService=new ProveedorService();
+    ProveedorService proveedorService=new ProveedorService();
     private JugueteService jugueteService=new JugueteService();
 
 
@@ -17,9 +17,9 @@ public class FuncionJuguete {
         boolean confirm=false;
         do {
             String codeProveedor=JOptionPane.showInputDialog("Digite el codigo del proveedor");
-            for (int x=0;x<proveedorService.proveedores.length;x++){
-                System.out.println(proveedorService.proveedores[x].getCodeProveedor());
-                if (codeProveedor==proveedorService.proveedores[x].getCodeProveedor()){
+            for (int x=0;x<proveedorService.getProveedores().length;x++){
+                System.out.println(proveedorService.getProveedores()[x].getCodeProveedor());
+                if (codeProveedor==proveedorService.getProveedores()[x].getCodeProveedor()){
                     jugueteService.comprarJuguete(codeProveedor,x);
                     confirm=true;
                     break;
@@ -29,9 +29,10 @@ public class FuncionJuguete {
     }
 
     public void generarDatosPrueba(){
+        System.out.println(proveedorService.getProveedores()[0]);  //Se reinician los datos y se jode el programa
         for (int x=0;x<5;x++){
             for (int y=0;y<7;y++)
-                jugueteService.comprarJugueteArreglo(proveedorService.proveedores[x].getJuguetes()[y]);
+                jugueteService.comprarJugueteArreglo(proveedorService.getProveedores()[x].getJuguetes()[y]);
         }
 
     }

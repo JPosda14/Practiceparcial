@@ -15,11 +15,13 @@ public class jugueteria {
         FuncionProveedor funcionProveedor=new FuncionProveedor();
         funcionProveedor.prepararProveedores();
         FuncionJuguete funcionJuguete=new FuncionJuguete();
-        funcionJuguete.generarDatosPrueba();
         FuncionUsuario funcionUsuario=new FuncionUsuario();
         funcionUsuario.generarCliente();
         funcionUsuario.generarEmpleado();
         FuncionVenta funcionVenta=new FuncionVenta();
+
+        //estan hechas todas las funcionalidades
+        //no corre debido a que hay una excepcion null, parece ser que se crea multiples veces, pero no se como acceder al arreglo de proveedor
 
 
 

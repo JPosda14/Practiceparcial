@@ -7,8 +7,17 @@ import co.edu.cue.jugueteria.model.Proveedor;
 import javax.swing.*;
 
 public class ProveedorService {
-    public Proveedor proveedores[]=new Proveedor[5];
-    public void crearProveedor(String name,String codeProveedor,String Qos,int numberMaterial){
+    private Proveedor proveedores[]=new Proveedor[5];
+
+    public Proveedor[] getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(Proveedor[] proveedores) {
+        this.proveedores = proveedores;
+    }
+
+    public void crearProveedor(String name, String codeProveedor, String Qos, int numberMaterial){
         Juguete juguetes[]=new Juguete[10];
         String material="";
         switch (numberMaterial) {

@@ -27,23 +27,23 @@ public class JugueteService {
                 confirm=true;
                 String cadenaJuguetes = "Digite el juguete de proveedor que desea comprar \n\nLos juguetes de este proveedor son:\n\n";
 
-                for (int i = 0; i < proveedorService.proveedores[cont].getJuguetes().length; i++) {
-                    if (String.valueOf(proveedorService.proveedores[cont].getJuguetes()[i]) != "null") {
-                        cadenaJuguetes += (i + 1) + ".  " + proveedorService.proveedores[cont].getJuguetes()[i].getNombre() + "       " + proveedorService.proveedores[cont].getJuguetes()[i].getPrecio() + "       " + proveedorService.proveedores[cont].getJuguetes()[i].getInventario() + "\n";
+                for (int i = 0; i < proveedorService.getProveedores()[cont].getJuguetes().length; i++) {
+                    if (String.valueOf(proveedorService.getProveedores()[cont].getJuguetes()[i]) != "null") {
+                        cadenaJuguetes += (i + 1) + ".  " + proveedorService.getProveedores()[cont].getJuguetes()[i].getNombre() + "       " + proveedorService.getProveedores()[cont].getJuguetes()[i].getPrecio() + "       " + proveedorService.getProveedores()[cont].getJuguetes()[i].getInventario() + "\n";
                     }
                 }
                 int optionJuguete = Integer.parseInt(JOptionPane.showInputDialog(cadenaJuguetes));
-                int cantiJuguete = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de juguetes que desea comprar del proveedor, recuerde que el maximo que puede comprar es: " + proveedorService.proveedores[cont].getJuguetes()[optionJuguete - 1].getInventario()));
+                int cantiJuguete = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de juguetes que desea comprar del proveedor, recuerde que el maximo que puede comprar es: " + proveedorService.getProveedores()[cont].getJuguetes()[optionJuguete - 1].getInventario()));
                 boolean confirmExistencia=false;
                 for (int j=0;j<juguetes.length;j++){
-                    if (proveedorService.proveedores[cont].getJuguetes()[optionJuguete - 1].getNombre().equals(juguetes[j].getNombre())){
+                    if (proveedorService.getProveedores()[cont].getJuguetes()[optionJuguete - 1].getNombre().equals(juguetes[j].getNombre())){
                         juguetes[j].setInventario(juguetes[j].getInventario()+cantiJuguete);
                         confirmExistencia=true;
                         break;
                     }
                 }
                 if (!confirmExistencia){
-                    juguetes[x] = proveedorService.proveedores[cont].getJuguetes()[optionJuguete - 1];
+                    juguetes[x] = proveedorService.getProveedores()[cont].getJuguetes()[optionJuguete - 1];
                     juguetes[x].setInventario(cantiJuguete);
                 }
             }
@@ -73,8 +73,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
+                            proveedor=proveedorService.getProveedores()[y];
                         }
                     }
                     contador = proveedor.getMaterial()== material ? contador + 1 : contador;
@@ -116,8 +116,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
+                            proveedor=proveedorService.getProveedores()[y];
                         }
                     }
                     contadorPlasti = proveedor.getMaterial() == "Plastico" ? contadorPlasti + 1 : contadorPlasti;
@@ -131,8 +131,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
+                            proveedor=proveedorService.getProveedores()[y];
                         }
                     }
                     contadorTela = proveedor.getMaterial() == "Tela" ? contadorTela + 1 : contadorTela;
@@ -146,8 +146,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
+                            proveedor=proveedorService.getProveedores()[y];
                         }
                     }
                     contadorElec = proveedor.getMaterial() == "Electronico" ? contadorElec + 1 : contadorElec;
@@ -256,8 +256,8 @@ public class JugueteService {
                         Proveedor proveedor=null;
                         juguetes[x].getCodeProveedor();
                         for (int y=0;y<10;y++){
-                            if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                                proveedor=proveedorService.proveedores[y];
+                            if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
+                                proveedor=proveedorService.getProveedores()[y];
                             }
                         }
                         cadena += juguetes[x].getNombre() + "\n" + proveedor.getMaterial();
