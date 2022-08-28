@@ -44,7 +44,7 @@ public class jugueteria {
                 case 0:
                     int option0=JOptionPane.showOptionDialog(
                             null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
-                            new Object[]{"Agregar Juguete","Aumentar exitencias de juguete","Disminuir existencias de juguete", "Agregar Cliente", "Agregar Empleado", "Salir"}, null);
+                            new Object[]{"Comprar Juguete","Aumentar exitencias de juguete","Disminuir existencias de juguete", "Agregar Cliente", "Agregar Empleado", "Salir"}, null);
                     switch (option0){
                         case 0:
                             funcionJuguete.prepararcompraJuguete();
