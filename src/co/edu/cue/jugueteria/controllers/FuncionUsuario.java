@@ -57,6 +57,14 @@ public class FuncionUsuario {
         }
     }
 
+    public void preparaInformeCliente(){
+        clienteService.informarMejorCLiente();
+    }
+
+    public void prepararInformeEmpleado(){
+        empleadoService.informarMejorEmpleado();
+    }
+
 
 
 

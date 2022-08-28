@@ -32,6 +32,18 @@ public class EmpleadoService implements UsuarioService{
         empleados[cont]=empleado;
     }
 
+    public void informarMejorEmpleado(){
+        Empleado empleadoMayor=empleados[0];
+        for (int x=0;x< empleados.length;x++){
+            if (empleadoMayor.getJuguetesVendidos()<empleados[x].getJuguetesVendidos()){
+                empleadoMayor=empleados[x];
+            }
+        }
+        JOptionPane.showMessageDialog(null,"El empleado con mayores ventas es: "+empleadoMayor.getNombre()+" con "+empleadoMayor.getJuguetesVendidos()+" ventas");
+    }
+
+
+
     @Override
     public void crearUsuario(){
         Empleado empleado=new Empleado(JOptionPane.showInputDialog("Digite el nombre del cliente"),JOptionPane.showInputDialog("Digite el numero de cedula: "),JOptionPane.showInputDialog("Digite el numero de telefono: "),JOptionPane.showInputDialog("Digite la direccion del usuario: "),Double.parseDouble(JOptionPane.showInputDialog("Digite el salario del empleado: ")),JOptionPane.showInputDialog("Ingrese la fecha de ingreso del empleado: "));

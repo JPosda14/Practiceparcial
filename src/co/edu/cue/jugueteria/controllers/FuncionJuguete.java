@@ -3,32 +3,40 @@ package co.edu.cue.jugueteria.controllers;
 import co.edu.cue.jugueteria.model.Cliente;
 import co.edu.cue.jugueteria.model.Juguete;
 import co.edu.cue.jugueteria.services.JugueteService;
+import co.edu.cue.jugueteria.services.ProveedorService;
 
 import javax.swing.*;
 import java.lang.*;
 
 public class FuncionJuguete {
+    public ProveedorService proveedorService=new ProveedorService();
     private JugueteService jugueteService=new JugueteService();
 
-    public void prepararJuguete() {
 
-        String name=JOptionPane.showInputDialog("Digite el nombre del juguete");
-        double price=Double.parseDouble(JOptionPane.showInputDialog("Digite el precio del juguete"));
-        int unids=Integer.parseInt(JOptionPane.showInputDialog("Digite las unidades de existencia del producto"));
-        jugueteService.crearJuguete(name,price,unids);
+    public void prepararcompraJuguete() {
+        boolean confirm=false;
+        do {
+            String codeProveedor=JOptionPane.showInputDialog("Digite el codigo del proveedor");
+            for (int x=0;x<proveedorService.proveedores.length;x++){
+                System.out.println(proveedorService.proveedores[x].getCodeProveedor());
+                if (codeProveedor==proveedorService.proveedores[x].getCodeProveedor()){
+                    jugueteService.comprarJuguete(codeProveedor,x);
+                    confirm=true;
+                    break;
+                }
+            }
+        }while (!confirm);
     }
 
-    public void generarPrueba(){
-        for (int x=0;x<50;x++){
-            String name="Producto "+(x+1);
-            double price=(x+1)*1000;
-            int unids=(x+1);
-            jugueteService.crearJugueteArreglo(name,price,unids,x);
+    public void generarDatosPrueba(){
+        for (int x=0;x<5;x++){
+            for (int y=0;y<7;y++)
+                jugueteService.comprarJugueteArreglo(proveedorService.proveedores[x].getJuguetes()[y]);
         }
+
     }
 
     public void prepararInformarJuguetesPorTipo(String material){
-        String type=material;
         jugueteService.informarJuguetesPorTipo(material);
     }
 

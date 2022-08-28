@@ -33,6 +33,16 @@ public class ClienteService implements UsuarioService{
         Cliente cliente=new Cliente(name,id,telephone,direction,birthday,email);
         clientes[cont]=cliente;
     }
+
+    public void informarMejorCLiente(){
+        Cliente clienteMayor=clientes[0];
+        for (int x=0;x<clientes.length;x++){
+            if (clienteMayor.getCantidadJuguetes()<clientes[x].getCantidadJuguetes()){
+                clienteMayor=clientes[x];
+            }
+        }
+        JOptionPane.showMessageDialog(null,"El mejor cliente es: "+clienteMayor.getNombre()+" con "+clienteMayor.getCantidadJuguetes()+" ventas");
+    }
     @Override
     public void crearUsuario() {
         Cliente cliente=new Cliente(JOptionPane.showInputDialog("Digite el nombre del cliente"),JOptionPane.showInputDialog("Digite el numero de cedula: "),JOptionPane.showInputDialog("Digite el numero de telefono: "),JOptionPane.showInputDialog("Digite la direccion del usuario: "),JOptionPane.showInputDialog("Digite el dia de cumpleaños del Cliente"),JOptionPane.showInputDialog("Digite el correo"));

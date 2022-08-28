@@ -1,6 +1,7 @@
 package co.edu.cue.jugueteria.application;
 
 import co.edu.cue.jugueteria.controllers.FuncionJuguete;
+import co.edu.cue.jugueteria.controllers.FuncionProveedor;
 import co.edu.cue.jugueteria.controllers.FuncionUsuario;
 import co.edu.cue.jugueteria.controllers.FuncionVenta;
 import co.edu.cue.jugueteria.model.Cliente;
@@ -11,17 +12,25 @@ import javax.swing.*;
 
 public class jugueteria {
     public static void main(String[] args) {
+        FuncionProveedor funcionProveedor=new FuncionProveedor();
+        funcionProveedor.prepararProveedores();
         FuncionJuguete funcionJuguete=new FuncionJuguete();
-        funcionJuguete.generarPrueba();
+        funcionJuguete.generarDatosPrueba();
         FuncionUsuario funcionUsuario=new FuncionUsuario();
         funcionUsuario.generarCliente();
         funcionUsuario.generarEmpleado();
         FuncionVenta funcionVenta=new FuncionVenta();
+
+
+
+
+
         int option;
+
     do{
         option=JOptionPane.showOptionDialog(
                 null,"Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
-                new Object[] { "Editar", "Informe", "Vender","Salir" },null);
+                new Object[] { "Editar", "Informe", "Vender","Proveedor","Salir" },null);
 
             switch (option) {
                 case 0:
@@ -30,7 +39,7 @@ public class jugueteria {
                             new Object[]{"Agregar Juguete","Aumentar exitencias de juguete","Disminuir existencias de juguete", "Agregar Cliente", "Agregar Empleado", "Salir"}, null);
                     switch (option0){
                         case 0:
-                            funcionJuguete.prepararJuguete();
+                            funcionJuguete.prepararcompraJuguete();
                             break;
                         case 1:
                             funcionJuguete.prepararAumentoExistencias();
@@ -49,7 +58,7 @@ public class jugueteria {
                 case 1:
                     int option1 = JOptionPane.showOptionDialog(
                             null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
-                            new Object[]{"Cantidad de juguetes por tipo", "Cantidad total de juguetes", "Valor total de juguetes", "Moda de tipo de juguetes", "Comparacion por precio","Cuidados juguete", "Salir"}, null);
+                            new Object[]{"Cantidad de juguetes por tipo", "Cantidad total de juguetes", "Valor total de juguetes", "Moda de tipo de juguetes", "Comparacion por precio","Cuidados juguete","Mejor cliente","Mejor empleado", "Salir"}, null);
                     switch (option1) {
                         case 0:
                             int opmaterial = JOptionPane.showOptionDialog(null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
@@ -81,13 +90,29 @@ public class jugueteria {
                         case 5:
                             funcionJuguete.prepararCuidadoToy();
                             break;
+                        case 6:
+                            funcionUsuario.preparaInformeCliente();
+                            break;
+                        case 7:
+                            funcionUsuario.prepararInformeEmpleado();
+                            break;
                     }
                     break;
                 case 2:
                     funcionVenta.prepararVenta();
                     break;
+                case 3:
+                    int option3 = JOptionPane.showOptionDialog(
+                            null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
+                            new Object[]{"Informar proveedores","salir"}, null);
+                    switch (option3) {
+                        case 0:
+                            funcionProveedor.prepararInformarProveedores();
+                            break;
+                    }
+                    break;
             }
-        }while (option!=3);
+        }while (option!=4);
     }
 
 }

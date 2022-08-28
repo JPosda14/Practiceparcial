@@ -4,6 +4,16 @@ public class Cliente extends Usuario{
     private String diaCumple;
     private String correo;
 
+    private int cantidadJuguetes;
+
+    public int getCantidadJuguetes() {
+        return cantidadJuguetes;
+    }
+
+    public void setCantidadJuguetes(int cantidadJuguetes) {
+        this.cantidadJuguetes = cantidadJuguetes;
+    }
+
     public String getDiaCumple() {
         return diaCumple;
     }
@@ -23,6 +33,7 @@ public class Cliente extends Usuario{
         setDireccion(direccion);
         this.diaCumple=diaCumple;
         this.correo = correo;
+        this.cantidadJuguetes=0;
 
     }
 

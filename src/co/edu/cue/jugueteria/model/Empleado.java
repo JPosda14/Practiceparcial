@@ -4,6 +4,16 @@ public class Empleado extends Usuario {
     private double salario;
     private String fechaIngreso;
 
+    public int getJuguetesVendidos() {
+        return JuguetesVendidos;
+    }
+
+    public void setJuguetesVendidos(int juguetesVendidos) {
+        JuguetesVendidos = juguetesVendidos;
+    }
+
+    private int JuguetesVendidos;
+
     public double getSalario() {
         return salario;
     }
@@ -27,6 +37,7 @@ public class Empleado extends Usuario {
         setDireccion(direccion);
         this.salario=salario;
         this.fechaIngreso=fechaIngreso;
+        this.JuguetesVendidos=0;
 
     }
 }
