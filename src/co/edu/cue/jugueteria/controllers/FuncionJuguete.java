@@ -9,9 +9,9 @@ import co.edu.cue.jugueteria.services.ProveedorService;
 import javax.swing.*;
 import java.lang.*;
 
-public class FuncionJuguete extends ProveedorService{
+public class FuncionJuguete {
 
-
+    public ProveedorService proveedorService=new ProveedorService();
 
     private JugueteService jugueteService=new JugueteService();
 
@@ -20,9 +20,9 @@ public class FuncionJuguete extends ProveedorService{
         boolean confirm=false;
         do {
             String codeProveedor=JOptionPane.showInputDialog("Digite el codigo del proveedor");
-            for (int x=0;x<getProveedores().length;x++){
-                System.out.println(getProveedores()[x].getCodeProveedor());
-                if (codeProveedor==getProveedores()[x].getCodeProveedor()){
+            for (int x=0;x<proveedorService.proveedores.length;x++){
+                System.out.println(proveedorService.proveedores[x].getCodeProveedor());
+                if (codeProveedor==proveedorService.proveedores[x].getCodeProveedor()){
                     jugueteService.comprarJuguete(codeProveedor,x);
                     confirm=true;
                     break;

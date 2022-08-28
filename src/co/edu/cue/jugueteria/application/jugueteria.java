@@ -19,7 +19,6 @@ public class jugueteria {
         funcionUsuario.generarCliente();
         funcionUsuario.generarEmpleado();
         try {
-            Thread.sleep(1000);
             funcionJuguete.generarDatosPrueba();
         } catch (Exception e) {
             System.out.println(e);
