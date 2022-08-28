@@ -18,6 +18,13 @@ public class jugueteria {
         FuncionUsuario funcionUsuario=new FuncionUsuario();
         funcionUsuario.generarCliente();
         funcionUsuario.generarEmpleado();
+        try {
+            Thread.sleep(1000);
+            funcionJuguete.generarDatosPrueba();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
         FuncionVenta funcionVenta=new FuncionVenta();
 
         //estan hechas todas las funcionalidades

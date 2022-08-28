@@ -7,7 +7,7 @@ import co.edu.cue.jugueteria.model.Proveedor;
 import javax.swing.*;
 
 public class ProveedorService {
-    private Proveedor proveedores[]=new Proveedor[5];
+    public Proveedor proveedores[]=new Proveedor[5];
 
     public Proveedor[] getProveedores() {
         return proveedores;
@@ -39,24 +39,26 @@ public class ProveedorService {
             juguetes[x]=juguete;
         }
         Proveedor proveedor=new Proveedor(name,codeProveedor,Qos,material,juguetes);
-        ajustarArreglo(proveedor);
+        for(int x=0;x<proveedores.length;x++){
+            if(String.valueOf(proveedores[x])=="null"){
+                proveedores[x]=proveedor;
+                break;
+            }
+        }
 
     }
 
     public void ajustarArreglo(Proveedor proveedor){
-        for(int x=0;x<proveedores.length;x++){
-            if(String.valueOf(proveedores[x])=="null"){
-                proveedores[x]=proveedor;
-              break;
-            }
-        }
+
     }
 
     public void informarProveedores(){
+        System.out.println(proveedores[4].getJuguetes()[0]);
         String cadenaProveedores="Los proveedores son de la jugueteria son: \n\n";
         for (int x=0;x<5;x++){
             cadenaProveedores+=(x+1)+"   "+proveedores[x].getName()+"      "+proveedores[x].getCodeProveedor()+"      "+proveedores[x].getMaterial()+"      "+proveedores[x].getQos()+"\n";
         }
+        System.out.println(proveedores[0].getJuguetes()[0].getNombre());
         JOptionPane.showMessageDialog(null,cadenaProveedores);
         JOptionPane.showMessageDialog(null,proveedores[0].getJuguetes()[0].getNombre());
     }

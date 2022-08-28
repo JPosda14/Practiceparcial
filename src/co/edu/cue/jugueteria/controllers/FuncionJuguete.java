@@ -2,14 +2,17 @@ package co.edu.cue.jugueteria.controllers;
 
 import co.edu.cue.jugueteria.model.Cliente;
 import co.edu.cue.jugueteria.model.Juguete;
+import co.edu.cue.jugueteria.model.Proveedor;
 import co.edu.cue.jugueteria.services.JugueteService;
 import co.edu.cue.jugueteria.services.ProveedorService;
 
 import javax.swing.*;
 import java.lang.*;
 
-public class FuncionJuguete {
-    ProveedorService proveedorService=new ProveedorService();
+public class FuncionJuguete extends ProveedorService{
+
+
+
     private JugueteService jugueteService=new JugueteService();
 
 
@@ -17,9 +20,9 @@ public class FuncionJuguete {
         boolean confirm=false;
         do {
             String codeProveedor=JOptionPane.showInputDialog("Digite el codigo del proveedor");
-            for (int x=0;x<proveedorService.getProveedores().length;x++){
-                System.out.println(proveedorService.getProveedores()[x].getCodeProveedor());
-                if (codeProveedor==proveedorService.getProveedores()[x].getCodeProveedor()){
+            for (int x=0;x<getProveedores().length;x++){
+                System.out.println(getProveedores()[x].getCodeProveedor());
+                if (codeProveedor==getProveedores()[x].getCodeProveedor()){
                     jugueteService.comprarJuguete(codeProveedor,x);
                     confirm=true;
                     break;
@@ -29,12 +32,7 @@ public class FuncionJuguete {
     }
 
     public void generarDatosPrueba(){
-        System.out.println(proveedorService.getProveedores()[0]);  //Se reinician los datos y se jode el programa
-        for (int x=0;x<5;x++){
-            for (int y=0;y<7;y++)
-                jugueteService.comprarJugueteArreglo(proveedorService.getProveedores()[x].getJuguetes()[y]);
-        }
-
+        jugueteService.comprarJugueteArreglo();
     }
 
     public void prepararInformarJuguetesPorTipo(String material){

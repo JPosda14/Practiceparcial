@@ -6,11 +6,10 @@ import co.edu.cue.jugueteria.services.Impl.EmpleadoService;
 
 import javax.swing.*;
 
-public class JugueteService {
+public class JugueteService extends ProveedorService{
     public Juguete juguetes[] = new Juguete[100];
 
 
-    ProveedorService proveedorService = new ProveedorService();
 
     public Juguete[] getJuguetes() {
         return juguetes;
@@ -23,27 +22,28 @@ public class JugueteService {
     public void comprarJuguete(String codeProveedor, int cont) {
         boolean confirm = false;
         for (int x = 0; x < 100; x++) {
+            System.out.println(getProveedores()[0].getJuguetes()[0].getNombre());
             if (String.valueOf(juguetes[x]) == "null") {
                 confirm=true;
                 String cadenaJuguetes = "Digite el juguete de proveedor que desea comprar \n\nLos juguetes de este proveedor son:\n\n";
 
-                for (int i = 0; i < proveedorService.getProveedores()[cont].getJuguetes().length; i++) {
-                    if (String.valueOf(proveedorService.getProveedores()[cont].getJuguetes()[i]) != "null") {
-                        cadenaJuguetes += (i + 1) + ".  " + proveedorService.getProveedores()[cont].getJuguetes()[i].getNombre() + "       " + proveedorService.getProveedores()[cont].getJuguetes()[i].getPrecio() + "       " + proveedorService.getProveedores()[cont].getJuguetes()[i].getInventario() + "\n";
+                for (int i = 0; i < getProveedores()[cont].getJuguetes().length; i++) {
+                    if (String.valueOf(getProveedores()[cont].getJuguetes()[i]) != "null") {
+                        cadenaJuguetes += (i + 1) + ".  " + getProveedores()[cont].getJuguetes()[i].getNombre() + "       " + getProveedores()[cont].getJuguetes()[i].getPrecio() + "       " + getProveedores()[cont].getJuguetes()[i].getInventario() + "\n";
                     }
                 }
                 int optionJuguete = Integer.parseInt(JOptionPane.showInputDialog(cadenaJuguetes));
-                int cantiJuguete = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de juguetes que desea comprar del proveedor, recuerde que el maximo que puede comprar es: " + proveedorService.getProveedores()[cont].getJuguetes()[optionJuguete - 1].getInventario()));
+                int cantiJuguete = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de juguetes que desea comprar del proveedor, recuerde que el maximo que puede comprar es: " + getProveedores()[cont].getJuguetes()[optionJuguete - 1].getInventario()));
                 boolean confirmExistencia=false;
                 for (int j=0;j<juguetes.length;j++){
-                    if (proveedorService.getProveedores()[cont].getJuguetes()[optionJuguete - 1].getNombre().equals(juguetes[j].getNombre())){
+                    if (getProveedores()[cont].getJuguetes()[optionJuguete - 1].getNombre().equals(juguetes[j].getNombre())){
                         juguetes[j].setInventario(juguetes[j].getInventario()+cantiJuguete);
                         confirmExistencia=true;
                         break;
                     }
                 }
                 if (!confirmExistencia){
-                    juguetes[x] = proveedorService.getProveedores()[cont].getJuguetes()[optionJuguete - 1];
+                    juguetes[x] = getProveedores()[cont].getJuguetes()[optionJuguete - 1];
                     juguetes[x].setInventario(cantiJuguete);
                 }
             }
@@ -52,9 +52,13 @@ public class JugueteService {
             }
         }
     }
-        public void comprarJugueteArreglo(Juguete juguete){
+        public void comprarJugueteArreglo(){
+            for (int i=0;i<5;i++){
+
+            }
             for (int x = 0; x < 100; x++) {
                 if (String.valueOf(juguetes[x]) == "null") {
+                    System.out.println(juguete.getNombre());
                     juguetes[x]=juguete;
                 }
             }
@@ -73,8 +77,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
-                            proveedor=proveedorService.getProveedores()[y];
+                        if (juguetes[x].getCodeProveedor()==getProveedores()[y].getCodeProveedor()){
+                            proveedor=getProveedores()[y];
                         }
                     }
                     contador = proveedor.getMaterial()== material ? contador + 1 : contador;
@@ -116,8 +120,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
-                            proveedor=proveedorService.getProveedores()[y];
+                        if (juguetes[x].getCodeProveedor()==getProveedores()[y].getCodeProveedor()){
+                            proveedor=getProveedores()[y];
                         }
                     }
                     contadorPlasti = proveedor.getMaterial() == "Plastico" ? contadorPlasti + 1 : contadorPlasti;
@@ -131,8 +135,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
-                            proveedor=proveedorService.getProveedores()[y];
+                        if (juguetes[x].getCodeProveedor()==getProveedores()[y].getCodeProveedor()){
+                            proveedor=getProveedores()[y];
                         }
                     }
                     contadorTela = proveedor.getMaterial() == "Tela" ? contadorTela + 1 : contadorTela;
@@ -146,8 +150,8 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
-                            proveedor=proveedorService.getProveedores()[y];
+                        if (juguetes[x].getCodeProveedor()==getProveedores()[y].getCodeProveedor()){
+                            proveedor=getProveedores()[y];
                         }
                     }
                     contadorElec = proveedor.getMaterial() == "Electronico" ? contadorElec + 1 : contadorElec;
@@ -256,8 +260,8 @@ public class JugueteService {
                         Proveedor proveedor=null;
                         juguetes[x].getCodeProveedor();
                         for (int y=0;y<10;y++){
-                            if (juguetes[x].getCodeProveedor()==proveedorService.getProveedores()[y].getCodeProveedor()){
-                                proveedor=proveedorService.getProveedores()[y];
+                            if (juguetes[x].getCodeProveedor()==getProveedores()[y].getCodeProveedor()){
+                                proveedor=getProveedores()[y];
                             }
                         }
                         cadena += juguetes[x].getNombre() + "\n" + proveedor.getMaterial();
