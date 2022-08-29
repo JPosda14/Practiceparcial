@@ -9,21 +9,17 @@ import co.edu.cue.jugueteria.services.ProveedorService;
 import javax.swing.*;
 import java.lang.*;
 
-public class FuncionJuguete {
-
-    public ProveedorService proveedorService=new ProveedorService();
-
-    private JugueteService jugueteService=new JugueteService();
+public class FuncionJuguete extends JugueteService{
 
 
-    public void prepararcompraJuguete() {
+    public void prepararcompraJuguete(Proveedor proveedores[]) {
         boolean confirm=false;
         do {
             String codeProveedor=JOptionPane.showInputDialog("Digite el codigo del proveedor");
-            for (int x=0;x<proveedorService.proveedores.length;x++){
-                System.out.println(proveedorService.proveedores[x].getCodeProveedor());
-                if (codeProveedor==proveedorService.proveedores[x].getCodeProveedor()){
-                    jugueteService.comprarJuguete(codeProveedor,x);
+            for (int x=0;x<proveedores.length;x++){
+                System.out.println(proveedores[x].getCodeProveedor());
+                if (codeProveedor.equalsIgnoreCase(proveedores[x].getCodeProveedor())){
+                    comprarJuguete(codeProveedor,x,proveedores);
                     confirm=true;
                     break;
                 }
@@ -31,43 +27,43 @@ public class FuncionJuguete {
         }while (!confirm);
     }
 
-    public void generarDatosPrueba(){
-        jugueteService.comprarJugueteArreglo();
+    public void generarDatosPrueba(Proveedor proveedores[]){
+        comprarJugueteArreglo(proveedores);
     }
 
-    public void prepararInformarJuguetesPorTipo(String material){
-        jugueteService.informarJuguetesPorTipo(material);
+    public void prepararInformarJuguetesPorTipo(String material,Proveedor proveedores[]){
+        informarJuguetesPorTipo(material,proveedores);
     }
 
     public void prepararAumentoExistencias(){
         String nameJuguete=JOptionPane.showInputDialog("Digite el nombre del juguete al que desea aumentarle las existencias");
-        jugueteService.aumentarExistencias(nameJuguete);
+        aumentarExistencias(nameJuguete);
     }
 
     public void prepararDisminuirExistencias(){
        String nameJuguete=JOptionPane.showInputDialog("Digite el nombre del juguete al que desea disminuirle las existencias");
-       jugueteService.disminuirExistencias(nameJuguete);
+       disminuirExistencias(nameJuguete);
     }
 
     public void prepararCantidadJuguetes(){
-        jugueteService.cantidadJuguetes();
+        cantidadJuguetes();
     }
 
     public void prepararTotalValor(){
-        jugueteService.TotalValor();
+        TotalValor();
 
     }
 
-    public void prepararMaxminTipo(){
-        jugueteService.maxminTipo();
+    public void prepararMaxminTipo(Proveedor proveedores[]){
+        maxminTipo(proveedores);
     }
 
     public void prepararMayorPrecio(){
-        jugueteService.mayorPrecio();
+        mayorPrecio();
 
     }
 
-    public void prepararCuidadoToy(){
-        jugueteService.cuidadoToy();
+    public void prepararCuidadoToy(Proveedor proveedores[]){
+        cuidadoToy(proveedores);
     }
 }

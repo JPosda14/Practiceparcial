@@ -19,64 +19,72 @@ public class JugueteService {
         this.juguetes = juguetes;
     }
 
-    public void comprarJuguete(String codeProveedor, int cont) {
-        ProveedorService proveedorService=new ProveedorService();
+    public void comprarJuguete(String codeProveedor, int cont,Proveedor proveedoresArr[]) {
+        Proveedor proveedores[]=proveedoresArr;
         boolean confirm = false;
         for (int x = 0; x < 100; x++) {
-            System.out.println(proveedorService.proveedores[0].getJuguetes()[0].getNombre());
+            System.out.println(proveedores[0].getJuguetes()[0].getNombre());
             if (String.valueOf(juguetes[x]) == "null") {
                 confirm=true;
                 String cadenaJuguetes = "Digite el juguete de proveedor que desea comprar \n\nLos juguetes de este proveedor son:\n\n";
 
-                for (int i = 0; i < proveedorService.proveedores[cont].getJuguetes().length; i++) {
-                    if (String.valueOf(proveedorService.proveedores[cont].getJuguetes()[i]) != "null") {
-                        cadenaJuguetes += (i + 1) + ".  " + proveedorService.proveedores[cont].getJuguetes()[i].getNombre() + "       " + proveedorService.proveedores[cont].getJuguetes()[i].getPrecio() + "       " + proveedorService.proveedores[cont].getJuguetes()[i].getInventario() + "\n";
+                for (int i = 0; i < proveedores[cont].getJuguetes().length; i++) {
+                    if (String.valueOf(proveedores[cont].getJuguetes()[i]) != "null") {
+                        cadenaJuguetes += (i + 1) + ".  " + proveedores[cont].getJuguetes()[i].getNombre() + "       " + proveedores[cont].getJuguetes()[i].getPrecio() + "       " + proveedores[cont].getJuguetes()[i].getInventario() + "\n";
                     }
                 }
                 int optionJuguete = Integer.parseInt(JOptionPane.showInputDialog(cadenaJuguetes));
-                int cantiJuguete = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de juguetes que desea comprar del proveedor, recuerde que el maximo que puede comprar es: " + proveedorService.proveedores[cont].getJuguetes()[optionJuguete - 1].getInventario()));
+                int cantiJuguete = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de juguetes que desea comprar del proveedor, recuerde que el maximo que puede comprar es: " + proveedores[cont].getJuguetes()[optionJuguete - 1].getInventario()));
                 boolean confirmExistencia=false;
                 for (int j=0;j<juguetes.length;j++){
-                    if (proveedorService.proveedores[cont].getJuguetes()[optionJuguete - 1].getNombre().equals(juguetes[j].getNombre())){
+                    if (proveedores[cont].getJuguetes()[optionJuguete - 1].getNombre().equals(juguetes[j].getNombre())){
                         juguetes[j].setInventario(juguetes[j].getInventario()+cantiJuguete);
                         confirmExistencia=true;
                         break;
                     }
                 }
                 if (!confirmExistencia){
-                    juguetes[x] = proveedorService.proveedores[cont].getJuguetes()[optionJuguete - 1];
+                    juguetes[x] = proveedores[cont].getJuguetes()[optionJuguete - 1];
                     juguetes[x].setInventario(cantiJuguete);
                 }
-            }
-            if (!confirm) {
-                JOptionPane.showMessageDialog(null, "El inventario de juguetes esta completo");
+                break;
             }
         }
+        if (!confirm) {
+            JOptionPane.showMessageDialog(null, "El inventario de juguetes esta completo");
+        }
+
+        if (confirm){
+            JOptionPane.showMessageDialog(null,"Compra realizada");
+        }
     }
-        public void comprarJugueteArreglo(){
-          ProveedorService proveedorService=new ProveedorService();
-            System.out.println(proveedorService.proveedores[0]);
-            Juguete juguete=proveedorService.proveedores[0].getJuguetes()[0];
+        public void comprarJugueteArreglo(Proveedor proveedores[]){
+            Proveedor proveedor[]=proveedores;
+            System.out.println(proveedor);
+            Juguete juguete=proveedores[0].getJuguetes()[0];
             for (int i=0;i<5;i++){
                 for (int j=0;j<8;j++){
-                    juguete=proveedorService.proveedores[i].getJuguetes()[j];
+                    juguete=proveedores[i].getJuguetes()[j];
                     System.out.println(juguete.getNombre());
+                    for (int x = 0; x < 100; x++) {
+                        if (String.valueOf(juguetes[x]) == "null") {
+                            System.out.println(juguete.getNombre());
+                            juguetes[x]=juguete;
+                            break;
+                        }
+                    }
                 }
             }
-            for (int x = 0; x < 100; x++) {
-                if (String.valueOf(juguetes[x]) == "null") {
-                    System.out.println(juguete.getNombre());
-                    juguetes[x]=juguete;
-                }
-            }
+
         }
         
 
 
 
-        public void informarJuguetesPorTipo (String material){
-        ProveedorService proveedorService=new ProveedorService();
+        public void informarJuguetesPorTipo (String material,Proveedor proveedoresArr[]){
+            Proveedor proveedores[]=proveedoresArr;
             System.out.println(juguetes[3]); // se usan en esta funcion pero no se guardan los datos, es decir lanza un null en esta linea
+            System.out.println(material);
             int contador = 0;
             for (int x = 0; x < 100; x++) {
                 if (String.valueOf(juguetes[x]) == "null") {
@@ -85,11 +93,14 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedores[y].getCodeProveedor()){
+                            proveedor=proveedores[y];
+                            break;
                         }
                     }
-                    contador = proveedor.getMaterial()== material ? contador + 1 : contador;
+                    if (proveedor.getMaterial().equalsIgnoreCase(material)){
+                        contador+=1;
+                    }
                 }
             }
             JOptionPane.showMessageDialog(null, "La cantidad de juguetes de " + material + " es de " + contador);
@@ -119,8 +130,8 @@ public class JugueteService {
             JOptionPane.showMessageDialog(null, "El valor de todos los juguetes es de: " + resultado);
         }
 
-        public void maxminTipo () {
-        ProveedorService proveedorService=new ProveedorService();
+        public void maxminTipo (Proveedor proveedoresArr[]) {
+        Proveedor proveedores[]=proveedoresArr;
             int contadorPlasti = 0;
             for (int x = 0; x < 100; x++) {
                 if (String.valueOf(juguetes[x]) == "null") {
@@ -129,8 +140,10 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        System.out.println(juguetes[x].getNombre());
+                        if (juguetes[x].getCodeProveedor()==proveedores[y].getCodeProveedor()){
+                            proveedor=proveedores[y];
+                            break;
                         }
                     }
                     contadorPlasti = proveedor.getMaterial() == "Plastico" ? contadorPlasti + 1 : contadorPlasti;
@@ -144,8 +157,9 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedores[y].getCodeProveedor()){
+                            proveedor=proveedores[y];
+                            break;
                         }
                     }
                     contadorTela = proveedor.getMaterial() == "Tela" ? contadorTela + 1 : contadorTela;
@@ -159,8 +173,9 @@ public class JugueteService {
                     Proveedor proveedor=null;
                     juguetes[x].getCodeProveedor();
                     for (int y=0;y<10;y++){
-                        if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                            proveedor=proveedorService.proveedores[y];
+                        if (juguetes[x].getCodeProveedor()==proveedores[y].getCodeProveedor()){
+                            proveedor=proveedores[y];
+                            break;
                         }
                     }
                     contadorElec = proveedor.getMaterial() == "Electronico" ? contadorElec + 1 : contadorElec;
@@ -223,7 +238,7 @@ public class JugueteService {
                     confirm = true;
                     int cantiaumento = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad a aumentar: "));
                     juguetes[x].setInventario(juguetes[x].getInventario() + cantiaumento);
-                    aumento = juguetes[x].getInventario() + cantiaumento;
+                    aumento = juguetes[x].getInventario();
                     break;
                 }
             }
@@ -244,7 +259,7 @@ public class JugueteService {
                     confirm = true;
                     int cantiaumento = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad a disminuir: "));
                     juguetes[x].setInventario(juguetes[x].getInventario() - cantiaumento);
-                    decremento = juguetes[x].getInventario() - cantiaumento;
+                    decremento = juguetes[x].getInventario();
                     break;
                 }
             }
@@ -255,8 +270,8 @@ public class JugueteService {
             }
         }
 
-        public void cuidadoToy () {
-        ProveedorService proveedorService=new ProveedorService();
+        public void cuidadoToy (Proveedor proveedoresArr[]) {
+            Proveedor proveedores[]=proveedoresArr;
             boolean confirmToy = false;
             String cadena = "Informacion de cuidado del producto:\n";
             do {
@@ -270,21 +285,22 @@ public class JugueteService {
                         Proveedor proveedor=null;
                         juguetes[x].getCodeProveedor();
                         for (int y=0;y<10;y++){
-                            if (juguetes[x].getCodeProveedor()==proveedorService.proveedores[y].getCodeProveedor()){
-                                proveedor=proveedorService.proveedores[y];
+                            if (juguetes[x].getCodeProveedor()==proveedores[y].getCodeProveedor()){
+                                proveedor=proveedores[y];
+                                break;
                             }
                         }
                         cadena += juguetes[x].getNombre() + "\n" + proveedor.getMaterial();
                         confirmToy = true;
                         switch (proveedor.getMaterial()) {
                             case "Plastico":
-                                cadena += "El juguete no requiere cuidados especiales";
+                                cadena += "  El juguete no requiere cuidados especiales";
                                 break;
                             case "Tela":
-                                cadena += "El juguete no debe ser mojado";
+                                cadena += "  El juguete no debe ser mojado";
                                 break;
                             case "Electronico":
-                                cadena += "El juguete no debe ser mojado y requiere baterías";
+                                cadena += "  El juguete no debe ser mojado y requiere baterías";
                                 break;
                         }
                     }
@@ -292,15 +308,12 @@ public class JugueteService {
             } while (!confirmToy);
             JOptionPane.showMessageDialog(null, cadena);
         }
-        public void crearVenta ( int cantiproduc){
+        public void crearVenta ( int cantiproduc,Cliente clientes[],Empleado empleados [],Juguete juguetes[]){
             Empleado prepaEmpleado = null;
             Cliente prepacliente = null;
-            EmpleadoService empleadoService = new EmpleadoService();
-            ClienteService clienteService = new ClienteService();
             DetalleVenta detallesdeventa[] = new DetalleVenta[cantiproduc];
             for (int x = 0; x < cantiproduc; x++) {
                 boolean confirm = false;
-
                 do {
                     String nameJuguete = JOptionPane.showInputDialog("Digite el nombre del juguete");
                     for (int y = 0; y < 100; y++) {
@@ -322,12 +335,12 @@ public class JugueteService {
             do {
                 String clienteask = JOptionPane.showInputDialog("Digite el nombre del cliente");
                 for (int x = 0; x < 5; x++) {
-                    if (String.valueOf(clienteService.clientes[x]) == "null") {
+                    if (String.valueOf(clientes[x]) == "null") {
                         continue;
-                    } else if (clienteService.clientes[x].getNombre().equalsIgnoreCase(clienteask)) {
+                    } else if (clientes[x].getNombre().equalsIgnoreCase(clienteask)) {
                         confirmcliente = true;
-                        prepacliente = clienteService.clientes[x];
-                        clienteService.clientes[x].setCantidadJuguetes(clienteService.clientes[x].getCantidadJuguetes()+cantiproduc);
+                        prepacliente = clientes[x];
+                        clientes[x].setCantidadJuguetes(clientes[x].getCantidadJuguetes()+cantiproduc);
                         break;
                     }
                 }
@@ -340,13 +353,13 @@ public class JugueteService {
             do {
                 String empleadoask = JOptionPane.showInputDialog("Digite el nombre del empleado");
                 for (int x = 0; x < 5; x++) {
-                    System.out.println(empleadoService.empleados[x].getNombre().equalsIgnoreCase(empleadoask));
-                    if (String.valueOf(empleadoService.empleados[x]) == "null") {
+                    System.out.println(empleados[x].getNombre().equalsIgnoreCase(empleadoask));
+                    if (String.valueOf(empleados[x]) == "null") {
                         continue;
-                    } else if (empleadoService.empleados[x].getNombre().equalsIgnoreCase(empleadoask)) {
+                    } else if (empleados[x].getNombre().equalsIgnoreCase(empleadoask)) {
                         confirmEmpleado = true;
-                        prepaEmpleado = empleadoService.empleados[x];
-                        empleadoService.empleados[x].setJuguetesVendidos(empleadoService.empleados[x].getJuguetesVendidos()+1);
+                        prepaEmpleado = empleados[x];
+                        empleados[x].setJuguetesVendidos(empleados[x].getJuguetesVendidos()+1);
                         break;
                     }
                 }

@@ -2,6 +2,7 @@ package co.edu.cue.jugueteria.services.Impl;
 
 import co.edu.cue.jugueteria.model.Cliente;
 import co.edu.cue.jugueteria.model.Empleado;
+import co.edu.cue.jugueteria.model.Juguete;
 import co.edu.cue.jugueteria.services.UsuarioService;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class EmpleadoService implements UsuarioService{
                 Empleado empleado=new Empleado(name,id,telefono,direction,salario,datein);
                 empleados[x]=empleado;
                 confirm=true;
+                JOptionPane.showMessageDialog(null,"Se han guardado los cambios :)");
                 break;
             }
         }
@@ -35,6 +37,9 @@ public class EmpleadoService implements UsuarioService{
     public void informarMejorEmpleado(){
         Empleado empleadoMayor=empleados[0];
         for (int x=0;x< empleados.length;x++){
+            if (String.valueOf(empleados[x])=="null"){
+                break;
+            }
             if (empleadoMayor.getJuguetesVendidos()<empleados[x].getJuguetesVendidos()){
                 empleadoMayor=empleados[x];
             }

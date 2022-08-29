@@ -48,9 +48,6 @@ public class ProveedorService {
 
     }
 
-    public void ajustarArreglo(Proveedor proveedor){
-
-    }
 
     public void informarProveedores(){
         System.out.println(proveedores[4].getJuguetes()[0]);

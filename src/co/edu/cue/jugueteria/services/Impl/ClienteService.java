@@ -21,6 +21,9 @@ public class ClienteService implements UsuarioService{
                 Cliente cliente=new Cliente(name,id,telefono,direction,correo,diaCumple);
                 clientes[x]=cliente;
                 confirm=true;
+                if (confirm){
+                    JOptionPane.showMessageDialog(null,"Se han guardado los cambios: \n"+cliente.getNombre()+"\n"+cliente.getTelefono()+"\n"+cliente.getCedula());
+                }
                 break;
             }
         }
@@ -37,6 +40,9 @@ public class ClienteService implements UsuarioService{
     public void informarMejorCLiente(){
         Cliente clienteMayor=clientes[0];
         for (int x=0;x<clientes.length;x++){
+            if (String.valueOf(clientes[x])=="null"){
+                break;
+            }
             if (clienteMayor.getCantidadJuguetes()<clientes[x].getCantidadJuguetes()){
                 clienteMayor=clientes[x];
             }

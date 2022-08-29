@@ -19,7 +19,7 @@ public class jugueteria {
         funcionUsuario.generarCliente();
         funcionUsuario.generarEmpleado();
         try {
-            funcionJuguete.generarDatosPrueba();
+            funcionJuguete.generarDatosPrueba(funcionProveedor.proveedores);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -47,7 +47,7 @@ public class jugueteria {
                             new Object[]{"Comprar Juguete","Aumentar exitencias de juguete","Disminuir existencias de juguete", "Agregar Cliente", "Agregar Empleado", "Salir"}, null);
                     switch (option0){
                         case 0:
-                            funcionJuguete.prepararcompraJuguete();
+                            funcionJuguete.prepararcompraJuguete(funcionProveedor.proveedores);
                             break;
                         case 1:
                             funcionJuguete.prepararAumentoExistencias();
@@ -70,16 +70,16 @@ public class jugueteria {
                     switch (option1) {
                         case 0:
                             int opmaterial = JOptionPane.showOptionDialog(null, "Seleccione opcion", "Selector de opciones", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,    // null para icono por defecto.
-                                    new Object[]{"Plastico", "Tela", "Electrico"}, null);
+                                    new Object[]{"Plastico", "Tela", "Electronico"}, null);
                             switch (opmaterial) {
                                 case 0:
-                                    funcionJuguete.prepararInformarJuguetesPorTipo("Plastico");
+                                    funcionJuguete.prepararInformarJuguetesPorTipo("Plastico",funcionProveedor.proveedores);
                                     break;
                                 case 1:
-                                    funcionJuguete.prepararInformarJuguetesPorTipo( "Tela");
+                                    funcionJuguete.prepararInformarJuguetesPorTipo( "Tela",funcionProveedor.proveedores);
                                     break;
                                 case 2:
-                                    funcionJuguete.prepararInformarJuguetesPorTipo("Electrico");
+                                    funcionJuguete.prepararInformarJuguetesPorTipo("Electronico",funcionProveedor.proveedores);
                                     break;
                             }
                             break;
@@ -90,13 +90,13 @@ public class jugueteria {
                             funcionJuguete.prepararTotalValor();
                             break;
                         case 3:
-                            funcionJuguete.prepararMaxminTipo();
+                            funcionJuguete.prepararMaxminTipo(funcionProveedor.proveedores);
                             break;
                         case 4:
                             funcionJuguete.prepararMayorPrecio();
                             break;
                         case 5:
-                            funcionJuguete.prepararCuidadoToy();
+                            funcionJuguete.prepararCuidadoToy(funcionProveedor.proveedores);
                             break;
                         case 6:
                             funcionUsuario.preparaInformeCliente();
@@ -107,7 +107,7 @@ public class jugueteria {
                     }
                     break;
                 case 2:
-                    funcionVenta.prepararVenta();
+                    funcionVenta.prepararVenta(funcionUsuario.clienteService.clientes,funcionUsuario.empleadoService.empleados,funcionJuguete.juguetes);
                     break;
                 case 3:
                     int option3 = JOptionPane.showOptionDialog(

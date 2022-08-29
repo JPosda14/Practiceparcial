@@ -5,6 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/application/jugueteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/application/jugueteria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionJuguete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionJuguete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionVenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionVenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/EmpleadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/Impl/EmpleadoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/JugueteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/JugueteService.java" afterDir="false" />
     </list>
     <list id="6ec86523-103f-43e3-918c-6d636824cf10" name="Changes by Posada" comment="" />
@@ -118,7 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661696193419</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Terminado xd">
+      <created>1661697785916</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1661697785916</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Terminado xd">
+      <created>1661697820795</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661697820795</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,11 +156,55 @@
     <MESSAGE value="Terminado xd" />
     <option name="LAST_COMMIT_MESSAGE" value="Terminado xd" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionUsuario.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/JugueteService.java</url>
+          <line>317</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/co/edu/cue/jugueteria/application/jugueteria.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/co/edu/cue/jugueteria/controllers/FuncionJuguete.java</url>
+          <line>14</line>
+          <properties class="co.edu.cue.jugueteria.controllers.FuncionJuguete" method="prepararcompraJuguete">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/co/edu/cue/jugueteria/services/JugueteService.java</url>
+          <line>310</line>
+          <properties class="co.edu.cue.jugueteria.services.JugueteService" method="crearVenta">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="empleadoService" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/javaPractica1_2$jugueteria.ic" NAME="jugueteria Coverage Results" MODIFIED="1661389950824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>co.edu.cue.jugueteria.application.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/javaParcial1$jugueteria.ic" NAME="jugueteria Coverage Results" MODIFIED="1661652961435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/javaParcial1$jugueteria.ic" NAME="jugueteria Coverage Results" MODIFIED="1661729887555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>co.edu.cue.jugueteria.application.*</FILTER>
     </SUITE>
   </component>

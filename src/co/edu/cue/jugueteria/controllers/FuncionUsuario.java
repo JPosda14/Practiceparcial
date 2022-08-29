@@ -11,8 +11,8 @@ import co.edu.cue.jugueteria.services.Impl.EmpleadoService;
 import javax.swing.*;
 
 public class FuncionUsuario {
-    private ClienteService clienteService=new ClienteService();
-    private EmpleadoService empleadoService=new EmpleadoService();
+    public ClienteService clienteService=new ClienteService();
+    public EmpleadoService empleadoService=new EmpleadoService();
     public void prepararCliente(){
         String name=JOptionPane.showInputDialog("Digite el nombre del cliente");
         String id=JOptionPane.showInputDialog("Digite la cedula del cliente");
