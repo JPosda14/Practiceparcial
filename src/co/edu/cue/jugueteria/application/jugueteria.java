@@ -27,7 +27,7 @@ public class jugueteria {
         FuncionVenta funcionVenta=new FuncionVenta();
 
         //estan hechas todas las funcionalidades
-        //no corre debido a que hay una excepcion null, parece ser que se crea multiples veces, pero no se como acceder al arreglo de proveedor
+
 
 
 
